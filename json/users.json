@@ -1,0 +1,61 @@
+[{
+  "_id": {
+    "$oid": "63b293ce76498216ce8ab01f"
+  },
+  "name": "yeshiao ben amotz",
+  "email": "yoshi@walla.com",
+  "password": "$2b$10$ABhZ6OfinowC0N6siYnq7u6YkIa6hfnSwJzCYFBerfJ0NFjEzOrEi",
+  "role": "user",
+  "date_created": {
+    "$date": "2023-01-02T08:20:30.700Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b2a02cee44ada32ecbe89e"
+  },
+  "name": "admin",
+  "email": "admin@walla.com",
+  "password": "$2b$10$/lnZv4V7iyCCs0ZzhBr5.OIkNcwkjILno83lvUPwlaOqSekzqkya.",
+  "role": "admin",
+  "date_created": {
+    "$date": "2023-01-02T09:13:16.262Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64118b49e732bd4c5460b60d"
+  },
+  "name": "samuel",
+  "email": "samuel@walla.com",
+  "password": "$2b$10$p6LGxmhHCnwGMkiC6vDcg.pBxUnJnkRkXpBMxI8LU8pKAYjosDoN.",
+  "role": "user",
+  "date_created": {
+    "$date": "2023-03-15T09:09:29.934Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6411adc5e107a8d8357d0542"
+  },
+  "name": "david",
+  "email": "david@walla.com",
+  "password": "$2b$10$BkFOYnvpknkYY.ho56k.SutAvtsUqB3HMa8rVVyTUxt9N0y5n/2tK",
+  "role": "user",
+  "date_created": {
+    "$date": "2023-03-15T11:36:37.423Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6411c99ae107a8d8357d0544"
+  },
+  "name": "koko",
+  "email": "koko4@walla.com",
+  "password": "$2b$10$E/49MTOaQN2L/Q.Y3VSQa.uWPYB4vjPOVgeTaVIkyvxg5J7EL0ttG",
+  "role": "user",
+  "date_created": {
+    "$date": "2023-03-15T13:35:22.494Z"
+  },
+  "__v": 0
+}]

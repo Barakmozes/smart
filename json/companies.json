@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "6446c4309f132c56b4a109c1"
+  },
+  "name": "Xioami",
+  "company_id": 1,
+  "img_url": ""
+},{
+  "_id": {
+    "$oid": "6446c4549f132c56b4a109c2"
+  },
+  "name": "Samsung",
+  "company_id": 2,
+  "img_url": ""
+},{
+  "_id": {
+    "$oid": "6446c4699f132c56b4a109c3"
+  },
+  "name": "One plus",
+  "company_id": 3,
+  "img_url": ""
+},{
+  "_id": {
+    "$oid": "6446c49c9f132c56b4a109c4"
+  },
+  "name": "Apple",
+  "company_id": 4,
+  "img_url": ""
+},
+{
+  "_id": {
+    "$oid": "6446c49c9f132c56b4a109c5"
+  },
+  "name": "Other",
+  "company_id": 5,
+  "img_url": ""
+}]
