@@ -52,7 +52,7 @@
   },
   "name": "koko",
   "email": "koko4@walla.com",
-  "password": "$2b$10$E/49MTOaQN2L/Q.Y3VSQa.uWPYB4vjPOVgeTaVIkyvxg5J7EL0ttG",
+  "password": "223",
   "role": "user",
   "date_created": {
     "$date": "2023-03-15T13:35:22.494Z"

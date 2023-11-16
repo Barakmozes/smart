@@ -5,6 +5,7 @@ const {config} = require("../config/secrets");
 
 const userSchema = new mongoose.Schema({
   name:String,
+  phone:String,
   email:String,
   password:String,
   date_created:{
@@ -32,6 +33,7 @@ exports.validateUser = (_reqBody) => {
   let joiSchema = Joi.object({
     name:Joi.string().min(2).max(150).required(),
     email:Joi.string().min(2).max(150).email().required(),
+    phone:Joi.string().min(10).max(10).required(),
     password:Joi.string().min(3).max(150).required()
   })
   return joiSchema.validate(_reqBody);
