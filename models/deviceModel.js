@@ -24,7 +24,7 @@ exports.validateDevice = (_reqBody) => {
     Description:Joi.string().min(2).max(406).required(),
     Link:Joi.string().min(2).max(406).required(),
     company_id:Joi.number().min(2).max(400).required(),//CategoryID
-    ImageURL:Joi.string().min(2).max(400).allow(null,""),
+    ImageURL:Joi.string().min(2).max(999).allow(null, ""),
     Weight:Joi.string().min(2).max(400).required(),
     Size:Joi.string().min(2).max(400).required(),
     Price:Joi.number().min(1).max(999).required(),
