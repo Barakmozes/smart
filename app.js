@@ -10,15 +10,9 @@ const {routesInit} = require("./routes/configRoutes");
 
 
 const app = express();
+
 app.use(express.static(path.join(__dirname, "./client/build")));
-app.get("*", function (_, res) {
-  res.sendFile(
-    path.join(__dirname, "./client/build/index.html"),
-    function (err) {
-      res.status(500).send(err);
-    }
-  );
-});
+
 
 
 // נותן אפשרות לכל דומיין לעשות בקשות לשרת שלנו

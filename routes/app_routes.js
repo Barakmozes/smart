@@ -2,8 +2,7 @@ const indexRouter = require("./index")
 
 // app -> express עצמו
 exports.routesInit = (app) => {
-  app.use("/",); 
-
+  app.use("/", indexRouter);
   // במקרה שהגענו לעמוד שלא קיים
   app.use((req,res) => {
     res.status(404).json({msg:"404 url page not found"})
