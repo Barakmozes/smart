@@ -11,7 +11,7 @@ const {routesInit} = require("./routes/configRoutes");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+
 
 
 
@@ -24,6 +24,7 @@ app.use(express.json());
 // דואג שתקיית פאבליק כל הקבצים בה יהיו חשופים לצד לקוח
 app.use(express.static(path.join(__dirname,"public")));
 
+app.use(express.static(path.join(__dirname, "./client/build")));
 // פונקציה שמגדירה את כל הראוטים הזמנים באפליקציית
 // צד שרת שלנו
 routesInit(app);
