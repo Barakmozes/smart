@@ -10,7 +10,15 @@ const {routesInit} = require("./routes/configRoutes");
 
 
 const app = express();
-
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 
 
 // נותן אפשרות לכל דומיין לעשות בקשות לשרת שלנו
@@ -30,7 +38,7 @@ routesInit(app);
 const server = http.createServer(app);
 // משתנה שיגדיר על איזה פורט אנחנו נעבוד
 // אנסה לבדוק אם אנחנו על שרת אמיתי ויאסוף את הפורט משם אם לא ואנחנו לוקאלי יעבוד על 3002
-let port = process.env.PORT || 3005;
+let port = process.env.PORT || 3000;
 // הפעלת השרת והאזנה לפורט המבוקש
 server.listen(port);
 

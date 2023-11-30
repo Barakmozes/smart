@@ -2,7 +2,7 @@ const indexRouter = require("./index")
 
 // app -> express עצמו
 exports.routesInit = (app) => {
-  app.use("/",indexRouter); 
+  app.use("/",); 
 
   // במקרה שהגענו לעמוד שלא קיים
   app.use((req,res) => {
