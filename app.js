@@ -25,6 +25,15 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,"public")));
 
 app.use(express.static(path.join(__dirname, "./client/build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./client/build/index.html"),
+    function (err) {
+      res.status(500).send(err);
+    }
+  );
+});
 // פונקציה שמגדירה את כל הראוטים הזמנים באפליקציית
 // צד שרת שלנו
 routesInit(app);
@@ -33,7 +42,7 @@ routesInit(app);
 const server = http.createServer(app);
 // משתנה שיגדיר על איזה פורט אנחנו נעבוד
 // אנסה לבדוק אם אנחנו על שרת אמיתי ויאסוף את הפורט משם אם לא ואנחנו לוקאלי יעבוד על 3002
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 5000;
 // הפעלת השרת והאזנה לפורט המבוקש
 server.listen(port);
 
