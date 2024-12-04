@@ -14,7 +14,6 @@ const app = express();
 
 
 
-
 // נותן אפשרות לכל דומיין לעשות בקשות לשרת שלנו
 app.use(cors());
 
@@ -24,16 +23,6 @@ app.use(express.json());
 // דואג שתקיית פאבליק כל הקבצים בה יהיו חשופים לצד לקוח
 app.use(express.static(path.join(__dirname,"public")));
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
-
-// app.get("*", function (_, res) {
-//   res.sendFile(
-//     path.join(__dirname, "./client/build/index.html"),
-//     function (err) {
-//       res.status(500).send(err);
-//     }
-//   );
-// });
 // פונקציה שמגדירה את כל הראוטים הזמנים באפליקציית
 // צד שרת שלנו
 routesInit(app);
