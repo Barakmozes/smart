@@ -1,43 +1,56 @@
 const jwt = require("jsonwebtoken");
-const {config} = require("../config/secrets")
+const { config } = require("../config/secrets");
 
-exports.auth = (req,res,next) => {
-  let token = req.header("x-api-key");
-  if(!token){
-    return res.status(401).json({msg:"You must send token in the header to this endpoint"})
+/**
+ * Middleware: verify any logged-in user's token.
+ * Token must be sent in the "x-api-key" request header.
+ */
+exports.auth = (req, res, next) => {
+  const token = req.header("x-api-key");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ msg: "Access denied. No token provided in x-api-key header." });
   }
-  try{
-    // בודק אם הטוקן תקין או בתקוף
-    let decodeToken = jwt.verify(token, config.token_secret);
-    // req -> יהיה זהה בכל הפונקציות שמורשרות באותו ראוטר
-    req.tokenData = decodeToken;
-    // לעבור לפונקציה הבאה בשרשור
+
+  try {
+    const decoded = jwt.verify(token, config.token_secret);
+    req.tokenData = decoded;
     next();
+  } catch (err) {
+    return res.status(401).json({ msg: "Token is invalid or has expired." });
   }
-  catch(err){
-    return res.status(401).json({msg:"Token invalid or expired"})
-  }
-}
+};
 
-// auth for admin only
-exports.authAdmin = (req,res,next) => {
-  let token = req.header("x-api-key");
-  if(!token){
-    return res.status(401).json({msg:"You must send token in the header to this endpoint"})
+/**
+ * Middleware: verify token AND confirm the user has the admin role.
+ *
+ * BUG FIXED: was using hardcoded "monkeysSecret" instead of config.token_secret,
+ * meaning every admin action silently failed token verification.
+ */
+exports.authAdmin = (req, res, next) => {
+  const token = req.header("x-api-key");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ msg: "Access denied. No token provided in x-api-key header." });
   }
-  try{
-    // בודק אם הטוקן תקין או בתקוף
-    let decodeToken = jwt.verify(token,"monkeysSecret");
-    // בודק אם הטוקן שייך לאדמין
-    if(decodeToken.role != "admin"){
-      return res.status(401).json({msg:"Just admin can be in this endpoint"})
+
+  try {
+    // FIX: use the same secret that signs the token — config.token_secret
+    const decoded = jwt.verify(token, config.token_secret);
+
+    if (decoded.role !== "admin") {
+      return res
+        .status(403)
+        .json({ msg: "Forbidden. Admin access required." });
     }
-    // req -> יהיה זהה בכל הפונקציות שמורשרות באותו ראוטר
-    req.tokenData = decodeToken;
-    // לעבור לפונקציה הבאה בשרשור
+
+    req.tokenData = decoded;
     next();
+  } catch (err) {
+    return res.status(401).json({ msg: "Token is invalid or has expired." });
   }
-  catch(err){
-    return res.status(401).json({msg:"Token invalid or expired"})
-  }
-}
+};
