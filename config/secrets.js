@@ -4,6 +4,6 @@ require("dotenv").config();
 exports.config = {
   db_pass:process.env.DB_PASS,
   db_user:process.env.DB_USER,
-  token_secret:process.env.TOKEN_SECRET
-  // db_url:""
+  token_secret:process.env.TOKEN_SECRET,
+   db_url:process.env.db_url
 }
