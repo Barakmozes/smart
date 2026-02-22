@@ -9,7 +9,7 @@ exports.routesInit = (app) => {
   })
 }
 
-// להגדיר CORS-ORIGIN שיאפשר כניסה מכל דומיין
+//  להגדיר CORS-ORIGIN שיאפשר כניסה מכל דומיין
 // או כל דומיין שנגדיר
 exports.originCorsAccess = (app) => {
   app.all('*',  (req, res, next) => {

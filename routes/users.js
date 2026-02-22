@@ -10,7 +10,6 @@ const router = express.Router();
 router.get("/", async(req,res) => {
   res.json({msg:"Users endpoint"});
 })
-
 // ראוט לבדיקת הטוקן שבסופו הראוט מחזיר את כל המידע על הטוקן כולל
 // תפקיד המשתמש ולא מדבר עם המסד נתונים
 router.get("/checkToken", auth,async(req,res) => {
@@ -97,6 +96,7 @@ router.post("/logIn", async(req,res) => {
       return res.status(401).json({msg:"Email Worng."})
     }
     // לבדוק אם הרשומה שנמצאה הסיסמא המוצפנות בתוכה מתאימה 
+
     let validPassword = await bcrypt.compare(req.body.password, user.password);
     if(!validPassword){
       return res.status(401).json({msg:"Password Worng."})
